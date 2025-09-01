@@ -13,7 +13,12 @@ public class AppSettings implements Serializable {
     private final Properties props = new Properties();
     private static volatile AppSettings instance;
 
-    private AppSettings() { } 
+    private AppSettings() {
+        // handles reflection as reflection can bypass private constructor
+        if (instance != null) {
+            throw new IllegalStateException("Singleton already created!");
+        }
+     } 
 
     public static AppSettings getInstance() {
         if (instance!=null){
