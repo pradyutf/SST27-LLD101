@@ -6,13 +6,13 @@ import java.util.List;
 /**
  * Telescoping constructors + setters. Allows invalid states.
  */
-public class Order {
-    private String id;
-    private String customerEmail;
+public final class Order {
+    private final String id;
+    private final String customerEmail;
     private final List<OrderLine> lines = new ArrayList<>();
-    private Integer discountPercent; // 0..100 expected, but not enforced
-    private boolean expedited;
-    private String notes;
+    private final Integer discountPercent; // 0..100 expected, but not enforced
+    private final boolean expedited;
+    private final String notes;
 
     // public Order(String id, String customerEmail) {
     //     this.id = id;
@@ -90,7 +90,7 @@ public class Order {
     // Defensive copy to prevent external mutation
     // public List<OrderLine> getLines() { return lines; } // leaks internal list
     public List<OrderLine> getLines() { return new ArrayList<>(lines); } // defensive copy
-    
+
     public Integer getDiscountPercent() { return discountPercent; }
     public boolean isExpedited() { return expedited; }
     public String getNotes() { return notes; }
