@@ -32,6 +32,12 @@ public class AppSettings implements Serializable {
         return instance; 
     }
 
+    
+     // Serialization trapdoor fix
+     private Object readResolve() throws ObjectStreamException {
+        return getInstance();
+    }
+
     public void loadFromFile(Path file) {
         try (InputStream in = Files.newInputStream(file)) {
             props.load(in);
