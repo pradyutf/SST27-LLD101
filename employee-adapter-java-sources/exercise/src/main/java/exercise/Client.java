@@ -24,17 +24,17 @@ public class Client {
 
 
     for(EmployeeCSV employeeCSV : csvRows){
-      AdapterCSV adapterCSV = new AdapterCSV();
+      EmployeeCSVAdapter adapterCSV = new EmployeeCSVAdapter();
       adapterCSV.ECSV = employeeCSV;
       all.add(adapterCSV);
     }
     for(EmployeeDB employeeDB : dbRows){
-      AdapterDB adapterDB = new AdapterDB();
+      EmployeeDBAdapter adapterDB = new EmployeeDBAdapter();
       adapterDB.EDB = employeeDB;
       all.add(adapterDB);
     }
     for(EmployeeLDAP employeeLDAP : ldapRows){
-      AdapterLDAP adapterLDAP = new AdapterLDAP();
+      EmployeeLDAPAdapter adapterLDAP = new EmployeeLDAPAdapter();
       adapterLDAP.ELDAP = employeeLDAP;
       all.add(adapterLDAP);
     }

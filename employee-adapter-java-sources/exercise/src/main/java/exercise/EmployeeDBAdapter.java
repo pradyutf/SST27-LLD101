@@ -1,26 +1,26 @@
 package exercise;
 
-public class AdapterLDAP implements Employee  {
-  EmployeeLDAP ELDAP;
+public class EmployeeDBAdapter implements Employee {
+  EmployeeDB EDB ;
+
   @Override
   public String getId() {
-    return ELDAP.get("uid");
+    return String.valueOf(EDB.getId());
   }
 
   @Override
   public String getFirstName() {
-    
-    return ELDAP.get("givenName");
+    return EDB.getFirstName();
   }
 
   @Override
   public String getLastName() {
-    return ELDAP.get("sn");
+    return EDB.getSurname();
   }
 
   @Override
   public String getEmail() {
-    return ELDAP.get("mail");
+    return EDB.getEmailAddress();
   }
   
 }

@@ -1,26 +1,25 @@
 package exercise;
 
-public class AdapterDB implements Employee {
-  EmployeeDB EDB ;
-
+public class EmployeeCSVAdapter implements Employee {
+  EmployeeCSV ECSV;
   @Override
   public String getId() {
-    return String.valueOf(EDB.getId());
+    return ECSV.tokens()[0];
   }
-
+  
   @Override
   public String getFirstName() {
-    return EDB.getFirstName();
+    return ECSV.tokens()[1];
   }
 
   @Override
   public String getLastName() {
-    return EDB.getSurname();
+    return ECSV.tokens()[2];
   }
 
   @Override
   public String getEmail() {
-    return EDB.getEmailAddress();
+    return ECSV.tokens()[3];
   }
   
 }

@@ -1,25 +1,26 @@
 package exercise;
 
-public class AdapterCSV implements Employee {
-  EmployeeCSV ECSV;
+public class EmployeeLDAPAdapter implements Employee  {
+  EmployeeLDAP ELDAP;
   @Override
   public String getId() {
-    return ECSV.tokens()[0];
+    return ELDAP.get("uid");
   }
-  
+
   @Override
   public String getFirstName() {
-    return ECSV.tokens()[1];
+    
+    return ELDAP.get("givenName");
   }
 
   @Override
   public String getLastName() {
-    return ECSV.tokens()[2];
+    return ELDAP.get("sn");
   }
 
   @Override
   public String getEmail() {
-    return ECSV.tokens()[3];
+    return ELDAP.get("mail");
   }
   
 }
