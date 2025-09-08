@@ -9,6 +9,9 @@ public class VideoPipelineFacade {
         Frame[] frames = dec.decode(inFile);
         frames = fe.grayscale(frames);
         frames = fe.scale(frames, 0.5);
+
+        SharpenAdapter sharpen = new SharpenAdapter(new LegacySharpen());
+        frames = sharpen.sharpen(frames, 5);
         return enc.encode(frames, outFile);
     }
 }
